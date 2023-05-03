@@ -1,25 +1,27 @@
 import React from 'react';
 import {
   ChakraProvider,
-
-  // Box,
-  // Text,
-  // Link,
-  // VStack,
-  // Code,
-  // Grid,
   theme,
 } from '@chakra-ui/react';
-// import { ColorModeSwitcher } from './ColorModeSwitcher';
-// import { Logo } from './Logo';
-import Register from './component/register';
+import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
+import Register from './component/register';
+import MainMenu from './pages/productPage';
 
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Register />
-    </ChakraProvider>
+    <Router>
+      <Routes>
+        <Route path="/homePage" element={<Register/>}/>
+        <Route path="/productPage" element={<MainMenu/>}/>
+      </Routes>
+    </Router>
+     </ChakraProvider>
+ 
+    
+  
+   
   );
 }
 

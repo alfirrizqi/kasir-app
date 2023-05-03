@@ -50,7 +50,7 @@ export default function Register(){
 
                     <InputGroup>
                     <FormLabel pr={'6'}>Phone</FormLabel>
-                    <InputLeftAddon children='+82' />
+                    <InputLeftAddon children='+62' />
                     <Input type='tel' placeholder='phone number' />
                     </InputGroup>
                 </Stack>
