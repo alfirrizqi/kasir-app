@@ -7,7 +7,8 @@ const MainMenu = () => {
   return (
     <div className="App">
       <Navbar />
-      <Box position='relative' gap={12} p={12} columns={2} bgGradient="linear(to-r, red.300, blue.400, red.300)" >
+      
+      {/* <Box position='relative' gap={12} p={12} columns={2} bgGradient="linear(to-r, red.300, blue.400, red.300)" >
         <Container>
           <Grid templateColumns='repeat(5, 1fr)' gap={4}>
             <GridItem w='100%' colSpan={2} h='10'  />
@@ -30,7 +31,7 @@ const MainMenu = () => {
             </GridItem>
           </Grid>
         </Container>
-      </Box>
+      </Box> */}
     </div>
 
   )
