@@ -20,12 +20,12 @@ export default function Navbar() {
             <Menu justify="center">
             <MenuButton as={Button} colorScheme='blue' my="20px" justifyItems="center">PRODUK</MenuButton>
             <MenuList>
-                <MenuGroup title='Kategori'>
+                <MenuGroup title='Kategori Produk'>
                     <MenuItem>Food And Beverages</MenuItem>
                     {/* <MenuItem>Minuman</MenuItem> */}
                 </MenuGroup>
                 <MenuDivider />
-                <MenuGroup title='Help'>
+                <MenuGroup title='Fashion'>
                     <MenuItem>Docs</MenuItem>
                     <MenuItem>FAQ</MenuItem>
                 </MenuGroup>
