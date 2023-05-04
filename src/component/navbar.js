@@ -22,13 +22,14 @@ export default function Navbar() {
             <MenuList>
                 <MenuGroup title='Kategori Produk'>
                     <MenuItem>Food And Beverages</MenuItem>
-                    {/* <MenuItem>Minuman</MenuItem> */}
+                    <MenuItem>Fashion</MenuItem>
+                    <MenuItem>Electronic</MenuItem>
                 </MenuGroup>
                 <MenuDivider />
-                <MenuGroup title='Fashion'>
+                {/* <MenuGroup title='Fashion'>
                     <MenuItem>Docs</MenuItem>
                     <MenuItem>FAQ</MenuItem>
-                </MenuGroup>
+                </MenuGroup> */}
             </MenuList>
         </Menu>
         <Menu>
