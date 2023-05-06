@@ -2,7 +2,7 @@ import React from "react";
 import {  Center, Stack, useColorModeValue, Heading, FormControl, FormLabel, Input, 
      InputRightElement, Button, InputGroup, InputLeftAddon, Text, Link, Box, Grid } from "@chakra-ui/react";
 
-import { useState } from "react";
+// import { useState } from "react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
 export default function Register(){
 

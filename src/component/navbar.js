@@ -26,14 +26,14 @@ export default function Navbar() {
                     <MenuItem>Electronic</MenuItem>
                 </MenuGroup>
                 <MenuDivider />
-                {/* <MenuGroup title='Fashion'>
-                    <MenuItem>Docs</MenuItem>
-                    <MenuItem>FAQ</MenuItem>
-                </MenuGroup> */}
+                <MenuGroup title='Kategori Lain'>
+                    <MenuItem>Tambahkan Kategori</MenuItem>
+                  
+                </MenuGroup> 
             </MenuList>
         </Menu>
         <Menu>
-        <MenuButton as={Button} colorScheme='blue' my="20px" justifyItems="center">TRANSAKSI</MenuButton>
+        <MenuButton as={Button} colorScheme='blue' my="20px" >TRANSAKSI</MenuButton>
         <MenuList>
             <MenuGroup title='Transaksi'>
                 <MenuItem>History Transaksi</MenuItem>

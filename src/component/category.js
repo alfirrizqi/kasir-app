@@ -21,7 +21,7 @@ export default function Category() {
     }
     ListCategories()
 
-
+        // get semua kategori
     const getCategory = async () => {
         try {
             const res = await axios.get("http://localhost:8000/auth/category/get");
@@ -30,9 +30,7 @@ export default function Category() {
             console.log(err);
         }
     }
-
-
-
+ 
 
     useEffect(() => {
         getCategory()

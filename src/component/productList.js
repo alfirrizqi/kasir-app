@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios'
 import CardProduct from './card';
 import { Box } from '@chakra-ui/react'
@@ -7,8 +7,10 @@ import { Box } from '@chakra-ui/react'
 
 
 export default function ProductList() {
+
     const [products, setProducts] = React.useState([]);
 
+    // function untuk menampilkan daftar produk
      const MenuProduct = () => {
          return(
             <>
@@ -18,6 +20,7 @@ export default function ProductList() {
      }
      MenuProduct()
 
+     // function untuk get data semua produk
     const getProducts = async () => {
         const products = await axios.get('http://localhost:8000/auth/product/get').then(function (response) {
             //    console.log(response.data);
@@ -31,6 +34,7 @@ export default function ProductList() {
         getProducts()
     }, []);
 
+    //kondisi untuk menampilkan card semua daftar produk
     if (products.length > 0) {
         return (
             products.map((product, index) => {
