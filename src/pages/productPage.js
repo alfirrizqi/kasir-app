@@ -26,7 +26,7 @@ const MainMenu = () => {
       <Navbar />
 
       <Flex mr={4} ml={4}>
-        <Box height='100%' bg='blue.200' mt='16' textAlign='center'>
+        <Box height='100%'  mt='16'>
           <Text as='b' fontSize='3xl' mt='10' spacing='3' size='md'>Daftar Kategori</Text>
           <Stack direction='row' spacing={4} mt='16' justifyContent='center'>
             <Button colorScheme='teal' variant='outline' >
@@ -37,13 +37,11 @@ const MainMenu = () => {
             </Button>
           </Stack>
         </Box>
-        <Spacer />
-
-        <Box bg='blue.200' height='80px' mt='16' >
+        <Box mt='16' ml={40}>
           <MenuProduk />
         </Box>
         <Spacer />
-        <Box bg='blue.200' height='80px' mt='16' textAlign='center'>
+        <Box mt='16' >
           <Text as='b' fontSize='3xl' mt='10' spacing='3' >Product Config</Text>
           <Stack direction='row' spacing={4} mt='16' justifyContent='center'>
             <Button onClick={onOpen} onClose={onClose} colorScheme='teal' variant='outline'>Tambah Produk</Button>.
