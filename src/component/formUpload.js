@@ -22,18 +22,6 @@ import Swal from 'sweetalert2'
 // function form produk memakai props untuk button close
 function FormProduct(props) {
 
-
-    
-    const handleClick = () => {
-        Swal.fire(
-            'Good job!',
-            'You clicked the button!',
-            'success'
-        )
-    }
-
-
-
     //membuat state untuk mengirim data sesuai form isi untuk produk baru
     const [file, setFile] = useState(null);
     const [name, setName] = useState('');
@@ -80,6 +68,12 @@ function FormProduct(props) {
         axios
             .post('http://localhost:8000/auth/product/create', formData)
             .then((response) => {
+                Swal.fire(
+                    'Good job!',
+                    'You clicked the button!',
+                    'success'
+                )
+                props.disclosure()
                 console.log(response);
                 // Handle the API response
             })
@@ -120,7 +114,7 @@ function FormProduct(props) {
                     <hr></hr>
                     <hr></hr>
                     <Stack direction='row' spacing={4} align='center' mt={5} mb={5}>
-                        <Button colorScheme='teal' variant='solid' type='submit' onClick={handleClick} >
+                        <Button colorScheme='teal' variant='solid' type='submit'>
                             Simpan
                         </Button>
                         <Button colorScheme='teal' variant='solid' onClick={props.disclosure}>

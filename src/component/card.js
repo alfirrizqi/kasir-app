@@ -11,7 +11,7 @@ function CardProduct({ data }) {
             <CardBody width="250px" >
                 
                 <Image
-                    src=''
+                    src='/public'
                     alt='Green double couch with wooden legs'
                     borderRadius='lg'
                      
