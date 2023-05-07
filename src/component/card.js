@@ -8,15 +8,14 @@ function CardProduct({ data }) {
         
         <Flex>
             <Card maxW='md' width='300px' >
-            <CardBody width="250px" >
+            <CardBody >
                 
                 <Image
-                    src='/public'
-                    alt='Green double couch with wooden legs'
+                    src='/public/'
+                    alt=''
                     borderRadius='lg'
                      
-                />
-                
+                />            
                 <Stack mt='6' spacing='3'>
                     <Heading size='md'width='300px' >{data.name}</Heading>
                     <Text >

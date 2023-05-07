@@ -14,6 +14,7 @@ import FormProduct from "../component/formUpload";
 
 const MainMenu = () => {
   const { isOpen, onOpen, onClose } = useDisclosure()
+  
   // const [categoryId, setCategoryId] = useState(null)
 
   // function category(categoryId) {
@@ -36,15 +37,10 @@ const MainMenu = () => {
               Minuman
             </Button>
           </Stack>
-        </Box>
-        <Box mt='16' ml={40}>
-          <MenuProduk />
-        </Box>
-        <Spacer />
-        <Box mt='16' >
+          <Stack>
           <Text as='b' fontSize='3xl' mt='10' spacing='3' >Product Config</Text>
           <Stack direction='row' spacing={4} mt='16' justifyContent='center'>
-            <Button onClick={onOpen} onClose={onClose} colorScheme='teal' variant='outline'>Tambah Produk</Button>.
+            <Button onClick={onOpen} onClose={onClose} colorScheme='teal' variant='outline' mt={16}>Tambah Produk</Button>.
             <Modal isOpen={isOpen} onClose={onClose} >
               <ModalOverlay />
               <ModalContent>
@@ -52,7 +48,12 @@ const MainMenu = () => {
               </ModalContent>
             </Modal>
           </Stack>
+          </Stack>
+          
         </Box>
+        <Box mt='20' ml={40}>
+          <MenuProduk />
+        </Box>    
       </Flex>
     </div>
 
