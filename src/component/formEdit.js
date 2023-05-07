@@ -21,17 +21,21 @@ import Swal from 'sweetalert2'
 
 
 // function form produk memakai props untuk button close
-function FormProduct(props) {
+function FormEdit(props) {
+
+ 
+    
 
 
-  
     //membuat state untuk mengirim data sesuai form isi untuk produk baru
     const [file, setFile] = useState(null);
-    const [name, setName] = useState('');
-    const [price, setPrice] = useState(0);
-    const [deskripsi, setDeskripsi] = useState('');
-    const [stok, setStok] = useState(0);
-    const [kategori, setKategori] = useState('');
+    const [name, setName] = useState(props.dataProduk.name);
+    const [price, setPrice] = useState(props.dataProduk.price);
+    const [deskripsi, setDeskripsi] = useState(props.dataProduk.description);
+    const [stok, setStok] = useState(props.dataProduk.qty);
+    const [kategori, setKategori] = useState(props.dataProduk.category_id);
+   
+    
 
     const handleFileChange = (e) => {
         setFile(e.target.files[0]);
@@ -52,6 +56,7 @@ function FormProduct(props) {
     const handleCategChange = (e) => {
         setKategori(e.target.value);
     };
+  
 
 
     const handleSubmit = (e) => {
@@ -66,19 +71,19 @@ function FormProduct(props) {
         formData.append('category_id', kategori);
         formData.append('thumbnail', file);
 
-        console.log(formData);
+        
 
-
-        //untuk membuat produk yang disave ke database
+        console.log(props.dataProduk.product_id);
+        //untuk setor update produk berdasarkan id
         axios
-            .post('http://localhost:8000/auth/product/create', formData)
+            .put('http://localhost:8000/auth/product/update/' + props.dataProduk.product_id, formData)
             .then((response) => {
                 Swal.fire(
                     'Good job!',
-                    'Produk berhasil ditambahkan',
+                    'Produk berhasil diubah',
                     'success'
-                )
-                   
+                )   
+
                 props.disclosure()
                 window.location.reload() 
                 console.log(response);
@@ -102,17 +107,17 @@ function FormProduct(props) {
                     <FormLabel mt={3}>Deskripsi Produk</FormLabel>
                     <Input type="text" value={deskripsi} onChange={handleDescChange}></Input>
                     <FormLabel mt={3}>Stok Produk</FormLabel>
-                    <NumberInput max={100} min={10} >
-                        <NumberInputField value={stok} onChange={handleQtyChange} />
+                    <NumberInput max={100} min={10} value={stok} >
+                        <NumberInputField  onChange={handleQtyChange} />
                         <NumberInputStepper>
                             <NumberIncrementStepper />
                             <NumberDecrementStepper />
                         </NumberInputStepper>
                     </NumberInput>
                     <FormLabel mt={3}>Kategori</FormLabel>
-                    <Select placeholder='Pilih Kategori' type="kategori" value={kategori} onChange={handleCategChange} >
-                        <option value={1}>Makanan</option>
-                        <option value={2}>Minuman</option>
+                    <Select placeholder='Pilih Kategori' type="kategori" onChange={handleCategChange} >
+                        <option value={1} selected={kategori == '1' ? true : false}>Minuman</option>
+                        <option value={2} selected={kategori == '2' ? true : false}>Makanan</option>
                     </Select>
                     <FormLabel mt={3} mb={4}>Foto Produk
                         <Container mt={2}> <input type="file" name="file" onChange={handleFileChange} />
@@ -136,4 +141,4 @@ function FormProduct(props) {
 }
 
 
-export default FormProduct;
+export default FormEdit;

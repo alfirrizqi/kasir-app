@@ -38,10 +38,10 @@ export default function ProductList() {
     if (products.length > 0) {
         return (
             products.map((product, index) => {
-                console.log(product);
+                
                 return (
-                        <Box md={4}>
-                                <CardProduct data = {product}/>
+                        <Box md={4} key={product.product_id}>
+                                <CardProduct data = {product} />
                          </Box>
                 )
 

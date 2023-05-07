@@ -1,7 +1,7 @@
 import { React } from "react";
 import Navbar from "../component/navbar";
 import {
-  Box, Text, Button, Stack, Flex, Spacer,
+  Box, Text, Button, Stack, Flex,
   Modal,
   ModalOverlay,
   ModalContent,
@@ -38,9 +38,9 @@ const MainMenu = () => {
             </Button>
           </Stack>
           <Stack>
-          <Text as='b' fontSize='3xl' mt='10' spacing='3' >Product Config</Text>
-          <Stack direction='row' spacing={4} mt='16' justifyContent='center'>
-            <Button onClick={onOpen} onClose={onClose} colorScheme='teal' variant='outline' mt={16}>Tambah Produk</Button>.
+          <Text as='b' fontSize='3xl' mt='20' spacing='3' >Product Config</Text>
+          <Stack  spacing={4} mt='16' >
+            <Button onClick={onOpen} onClose={onClose} colorScheme='teal' variant='outline' mt={16} >Tambah Produk</Button>.
             <Modal isOpen={isOpen} onClose={onClose} >
               <ModalOverlay />
               <ModalContent>
@@ -51,7 +51,7 @@ const MainMenu = () => {
           </Stack>
           
         </Box>
-        <Box mt='20' ml={40}>
+        <Box mt='16' ml={40}>
           <MenuProduk />
         </Box>    
       </Flex>

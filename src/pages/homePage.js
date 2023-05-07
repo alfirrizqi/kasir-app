@@ -1,5 +1,5 @@
 import { Container } from '@chakra-ui/react'
-import Register from "../component/register";
+import register from "./register";
 
 
 
@@ -8,7 +8,7 @@ const HomePage = () => {
         <>
         <div className="mt-5">
             <Container>
-                <Register />
+               <register/>
             </Container>
         </div>
         </>
