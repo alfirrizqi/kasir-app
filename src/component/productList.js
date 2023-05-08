@@ -7,7 +7,9 @@ import { Box } from '@chakra-ui/react'
 export default function ProductList(props) {
     //kondisi untuk menampilkan card semua daftar produk
     if (props.dataProducts.length > 0) {
+        
         return (
+            
             props.dataProducts.map((product, index) => {
 
                 return (

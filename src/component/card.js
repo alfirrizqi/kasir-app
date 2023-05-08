@@ -1,5 +1,5 @@
 import {
-    Card, CardBody, CardFooter, Text, Divider, ButtonGroup, Button, Image, Stack, Heading, Flex, Modal,
+    Card, CardBody, CardFooter, Text, Divider, ButtonGroup, Button, Image, Stack, Heading, Grid, Modal,
     ModalOverlay,
     ModalContent,
     useDisclosure
@@ -14,9 +14,10 @@ function CardProduct({ data }) {
 
     return (
 
-        <Flex>
+        <Grid templateColumns='repeat(5, 1fr)' gap={6}>
             <Card maxW='md' width='300px' >
-                <CardBody >
+                
+                <CardBody>
 
                     <Image
                         src={'http://localhost:8000/' + data.thumbnail}
@@ -58,7 +59,7 @@ function CardProduct({ data }) {
                     </ButtonGroup>
                 </CardFooter>
             </Card>
-        </Flex>
+        </Grid>
 
 
 
