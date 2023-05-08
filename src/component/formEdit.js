@@ -73,7 +73,7 @@ function FormEdit(props) {
 
         
 
-        console.log(props.dataProduk.product_id);
+        // console.log(props.dataProduk.product_id);
         //untuk setor update produk berdasarkan id
         axios
             .put('http://localhost:8000/auth/product/update/' + props.dataProduk.product_id, formData)

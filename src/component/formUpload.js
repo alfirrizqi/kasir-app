@@ -102,7 +102,7 @@ function FormProduct(props) {
                     <FormLabel mt={3}>Deskripsi Produk</FormLabel>
                     <Input type="text" value={deskripsi} onChange={handleDescChange}></Input>
                     <FormLabel mt={3}>Stok Produk</FormLabel>
-                    <NumberInput max={100} min={10} >
+                    <NumberInput min={10} >
                         <NumberInputField value={stok} onChange={handleQtyChange} />
                         <NumberInputStepper>
                             <NumberIncrementStepper />
