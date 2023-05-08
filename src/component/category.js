@@ -145,11 +145,11 @@ export default function Insert(){
                             <Tbody>
                            {renderTable()}
                             </Tbody>
-                            <Tfoot>
+                            {/* <Tfoot>
                             <Tr>
                               
                             </Tr>
-                            </Tfoot>
+                            </Tfoot> */}
                         </Table>
                         </TableContainer>
 
