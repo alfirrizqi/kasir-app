@@ -50,7 +50,7 @@
 import { Card, CardBody, CardHeader, Modal,Button,ModalFooter,  Heading,  Input,FormControl, 
     ModalBody,ModalContent,FormLabel,ModalOverlay,ModalCloseButton,ModalHeader, 
     Center, Stack, useColorModeValue,useDisclosure, TableContainer, Td,Tr,Th, Table, 
-    Thead, Tbody,  useToast, ToastPosition, Toast} from "@chakra-ui/react";
+    Thead, Tbody,Tfoot,  useToast, ToastPosition, Toast} from "@chakra-ui/react";
 import axios from "axios";
 
 import React, { useEffect } from "react";
@@ -145,6 +145,11 @@ export default function Insert(){
                             <Tbody>
                            {renderTable()}
                             </Tbody>
+                            <Tfoot>
+                            <Tr>
+                              
+                            </Tr>
+                            </Tfoot>
                         </Table>
                         </TableContainer>
 
