@@ -5,7 +5,7 @@ import {
 } from '@chakra-ui/react';
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom'
 
-import Register from './component/register';
+import register from './pages/register';
 import MainMenu from './pages/productPage';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <ChakraProvider theme={theme}>
     <Router>
       <Routes>
-        <Route path="/homePage" element={<Register/>}/>
+        <Route path="/register" element={<register/>}/>
         <Route path="/productPage" element={<MainMenu/>}/>
       </Routes>
     </Router>
