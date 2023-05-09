@@ -85,8 +85,8 @@ export default function Insert(){
                 await axios.post('http://localhost:8000/auth/tambah/category', isi).then((res) => {
                     console.log(res);
                     toast({
-                      title: "Account created.",
-                      description: "We've created your account for you.",
+                      title: "Category created.",
+                      description: "We've created your new category for you.",
                       status: "success",
                       ...defaultToastProps,
                     });
@@ -114,10 +114,16 @@ export default function Insert(){
                     <Tr>
                         <Td>{Category.category_id}</Td>
                         <Td>{Category.category_name}</Td>
-                        <Td><Button onClick={modal2.onOpen}  colorScheme='blue'>Edit</Button></Td>
+                        <Td><Button 
+                        onClick={modal2.onOpen}  colorScheme='blue'>Edit</Button></Td>
                     </Tr>
                 )
             })
+        }
+
+        const getidCat = async (id) =>{
+            await axios.get(`http://localhost:8000/auth/category/${id}`);
+        
         }
     return(
         <Card align={'center'}>
@@ -144,7 +150,10 @@ export default function Insert(){
                             </Tr>
                             </Thead>
                             <Tbody>
+                                
                            {renderTable()}
+                        
+                        
                             </Tbody>
                             <Tfoot>
                         <Tr></Tr>
