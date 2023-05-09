@@ -1,24 +1,29 @@
 import React from 'react';
 import CardProduct from './card';
-import { Box } from '@chakra-ui/react'
+import { GridItem, Grid } from '@chakra-ui/react'
 
 
 
 export default function ProductList(props) {
     //kondisi untuk menampilkan card semua daftar produk
     if (props.dataProducts.length > 0) {
-        
+
         return (
-            
-            props.dataProducts.map((product, index) => {
+            <Grid templateColumns='repeat(3, 1fr)' >
 
-                return (
-                    <Box md={4} key={product.product_id}>
+             {props.dataProducts.map((product, index) => {
+
+              return (
+                <div>
+
+                    <GridItem  sm={6} key={product.product_id} width='80%'>
                         <CardProduct data={product} />
-                    </Box>
+                    </GridItem>
+                </div>
                 )
+         })}
+            </Grid>
 
-            })
         )
     } else {
         return (<h3>Tidak ada data</h3>)

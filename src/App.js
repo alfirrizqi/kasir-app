@@ -13,10 +13,10 @@ import Login from './pages/login';
 
 function App() {
   return (
-    <ChakraProvider theme={theme}>
-      <Login />
+    <ChakraProvider theme={theme}>   
     <Router>
       <Routes>
+      <Route path="/" element={<Login/>}/>
         <Route path="/category" element={<Insert/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/productPage" element={<MainMenu/>}/>
