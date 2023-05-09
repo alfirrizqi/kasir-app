@@ -42,7 +42,7 @@ export default function Register(){
               setPass("");
               setEmail("");
               setTel("");
-            })
+            }).then(()=>{ window.location = "/login"})
             } catch (err) {
               console.log(err)
  

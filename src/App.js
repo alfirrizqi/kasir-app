@@ -14,12 +14,12 @@ import Login from './pages/login';
 function App() {
   return (
     <ChakraProvider theme={theme}>
-      <Login />
     <Router>
       <Routes>
         <Route path="/category" element={<Insert/>}/>
         <Route path="/register" element={<Register/>}/>
         <Route path="/productPage" element={<MainMenu/>}/>
+        <Route path="/login" element={<Login/>}/>
       </Routes>
     </Router>
      </ChakraProvider>
