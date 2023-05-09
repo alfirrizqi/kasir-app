@@ -1,19 +1,62 @@
 import React from "react";
 import {  Center, Stack, useColorModeValue, Heading, FormControl, FormLabel, Input, 
-     InputRightElement, Button, InputGroup, InputLeftAddon, Text, Link, Box, Grid } from "@chakra-ui/react";
+     InputRightElement, Button, InputGroup, InputLeftAddon, Text, Link, Box, Grid, Alert, AlertIcon,Toast, useToast, ToastPosition } from "@chakra-ui/react";
 
-// import { useState } from "react";
+import { useState } from "react";
 import { ColorModeSwitcher } from "../ColorModeSwitcher";
+import axios from "axios";
 export default function Register(){
 
-        const [show, setShow] = React.useState(false)
-        const handleClick = () => setShow(!show)
+        const [show, setShow] = React.useState(false);
+        const handleClick = () => setShow(!show);
+
+        const defaultToastProps = {
+          position: "top-right",
+          duration: 5000,
+          isClosable: true,
+         };
+
+        const [username, setName] = useState("");
+        const [password, setPass] = useState("");
+        const [email, setEmail] = useState("");
+        const [phone, setTel] = useState("");
+        
+        const toast = useToast();
+
+        const postRequestHandler = async () => {
+          const data = {username, password, email, phone};
+
+          if (username === "" || password === "" || email === "" || phone === "") {
+              alert('ada data yang masih kosong')
+          }else{
+            try {
+             await axios.post('http://localhost:8000/auth/register', data).then((res) => {
+              console.log(res);
+              toast({
+                title: "Account created.",
+                description: "We've created your account for you.",
+                status: "success",
+                ...defaultToastProps,
+              });
+              setName("");
+              setPass("");
+              setEmail("");
+              setTel("");
+            })
+            } catch (err) {
+              console.log(err)
+ 
+            }
+            
+          }
+      
+        }
         
     return(
         <Box textAlign="center" fontSize="xl">
         <Grid minH="50vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
-        <Center py={200}>
+        <Center py={6}>
             <Stack
             borderWidth="1px"
             borderRadius="lg"
@@ -30,12 +73,12 @@ export default function Register(){
                 </Heading>
                     <InputGroup>
                     <FormLabel>Username</FormLabel>
-                    <Input type="username" placeholder='Enter username'/>
+                    <Input type="text" value={username} onChange={(e) => setName(e.target.value)} placeholder='Enter username'/>
                     </InputGroup>
 
                     <InputGroup>
                     <FormLabel pr={'1'}>Password</FormLabel>
-                    <Input pr='4.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
+                    <Input value={password} onChange={(e) => setPass(e.target.value)}  pr='4.5rem' type={show ? 'text' : 'password'} placeholder='Enter password' />
                     <InputRightElement width='4.5rem'>
                     <Button h='1.75rem' size='sm' onClick={handleClick}>
                         {show ? 'Hide' : 'Show'}
@@ -45,17 +88,17 @@ export default function Register(){
 
                     <InputGroup>
                     <FormLabel pr={'8'}>Email</FormLabel>
-                    <Input type="email"  name="email" placeholder="your-email@example.com"/>
+                    <Input type="email" value={email} onChange={(e) => setEmail(e.target.value)} name="email" placeholder="your-email@example.com"/>
                     </InputGroup>
 
                     <InputGroup>
                     <FormLabel pr={'6'}>Phone</FormLabel>
                     <InputLeftAddon children='+62' />
-                    <Input type='tel' placeholder='phone number' />
+                    <Input type='tel' value={phone} onChange={(e) => setTel(e.target.value)} placeholder='phone number' />
                     </InputGroup>
                 </Stack>
                 <Stack spacing={10} pt={5}>
-              <Button
+              <Button onClick={postRequestHandler}
                 loadingText="Submitting"
                 size="lg"
                 bg={'blue.400'}
@@ -76,5 +119,8 @@ export default function Register(){
         </Center>
         </Grid>
         </Box>
+       
     )
+    
+
 }
