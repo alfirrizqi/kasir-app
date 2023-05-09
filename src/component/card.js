@@ -19,9 +19,9 @@ function CardProduct({data}) {
     return (
 
 
-        <Card maxW='md' width='420px' sx={{ width: '768' }} >
+        <Card maxW='md' width='600px' sx={{ width: '768' }} padding= "50px" >
 
-            <CardBody display='contents' alignContent='center'>
+            <CardBody display='contents'>
 
                 <Image
                     src={'http://localhost:8000/' + data.thumbnail}
@@ -35,18 +35,18 @@ function CardProduct({data}) {
                     <Text display='flex' justifyContent='center'>
                         {data.description}
                     </Text>
-                    <Text color='blue.600' fontSize='2xl' >
+                    <Text color='blue.600' fontSize='2xl' display='flex' justifyContent='center'>
                         Rp. {numberWithCommas(data.price)}
                     </Text>
                 </Stack>
             </CardBody>
             <Divider />
-            <CardFooter>
-                <ButtonGroup spacing='2' >
-                    <Button variant='solid' colorScheme='blue' >
+            <CardFooter display='center' >
+                <ButtonGroup >
+                    <Button variant='solid' fontSize='xs' colorScheme='blue' fontWeight='normal'>
                         Add to cart
                     </Button>
-                    <Button variant='solid' colorScheme='blue' onClick={onOpen} onClose={onClose} >
+                    <Button variant='solid' fontSize='xs' colorScheme='blue' fontWeight='normal' onClick={onOpen} onClose={onClose} >
                         Edit Produk
                         <Modal isOpen={isOpen} onClose={onClose} >
                             <ModalOverlay />
@@ -56,9 +56,9 @@ function CardProduct({data}) {
                         </Modal>
                     </Button>
                     <ButtonGroup>
-                        <Button variant='solid' colorScheme='blue'>
+                        {/* <Button variant='solid' colorScheme='blue'>
                             Hapus Produk
-                        </Button>
+                        </Button> */}
                     </ButtonGroup>
 
                 </ButtonGroup>
