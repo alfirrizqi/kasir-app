@@ -6,12 +6,13 @@ import axios from "axios";
 
 import React, { useEffect } from "react";
 import { useState} from "react";
+import { useParams } from "react-router-dom/dist";
 
 export default function Insert(){
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    const { isOpen, onOpen, onClose } = useDisclosure()
     const modal1 = useDisclosure()
-    const modal2 = useDisclosure()
+    
     const initialRef = React.useRef();
     const finalRef = React.useRef();
 
@@ -57,19 +58,34 @@ export default function Insert(){
     useEffect(() =>{
         axios.get('http://localhost:8000/auth/category/get').then(json => setData(json.data.data))
     }, [])
-
+    const [rowData, setRowData] = useState([data]);
         const renderTable = () =>{
+            
             return data.map(Category => {
+                
                 return(
-                    <Tr>
+                    <Tr key={Category.category_id}>
                         <Td>{Category.category_id}</Td>
                         <Td>{Category.category_name}</Td>
                         <Td><Button 
-                        onClick={modal2.onOpen}  colorScheme='blue'>Edit</Button></Td>
+                        onClick={()=>{setRowData(data); onOpen()}} colorScheme='blue'>Edit</Button></Td>
                     </Tr>
                 )
             })
         }
+        const [category_names, setNamecat] = useState([])
+        const id = useParams();
+
+        useEffect(() =>{
+            getId();
+        })
+/////
+        const getId = async() =>{
+            const response = await axios.get(`http://localhost:8000/auth/category/${id}`)
+            const data = await response.data.data
+            setNamecat(data.category_name)
+        }
+
     return(
         <Card align={'center'}>
             <CardHeader>
@@ -132,7 +148,7 @@ export default function Insert(){
                         </ModalContent>
                     </Modal>
                 {/* modals untuk edit */}
-                    <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={modal2.isOpen} onClose={modal2.onClose}>
+                    <Modal initialFocusRef={initialRef} finalFocusRef={finalRef} isOpen={isOpen} onClose={onClose}>
                         <ModalOverlay />
                         <ModalContent>
                         <ModalHeader>Edit Data Category</ModalHeader>
@@ -142,7 +158,7 @@ export default function Insert(){
                             <FormControl>
                             <FormLabel>Name</FormLabel>
                             <Input 
-                            value={category_name} onChange={(e) => setName(e.target.value)} 
+                            value={rowData.category_name} onChange={(e) => setRowData(e.target.value)} 
                             ref={initialRef} placeholder="Name Category" />
                             </FormControl>
                         </ModalBody>
@@ -151,7 +167,7 @@ export default function Insert(){
                             <Button variantColor="blue" mr={3} >
                             Save
                             </Button>
-                            <Button onClick={modal2.onClose}>Cancel</Button>
+                            <Button onClick={onClose}>Cancel</Button>
                         </ModalFooter>
                         </ModalContent>
                     </Modal>
