@@ -27,7 +27,7 @@ export default function Navbar() {
                 </MenuGroup>
                 <MenuDivider />
                 <MenuGroup title='Kategori Lain'>
-                    <MenuItem >Tambahkan Kategori</MenuItem>
+                    <MenuItem onClick={()=>{window.location="/category"}} >Tambahkan Kategori</MenuItem>
                   
                 </MenuGroup> 
             </MenuList>

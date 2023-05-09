@@ -42,7 +42,7 @@ export default function Register(){
               setPass("");
               setEmail("");
               setTel("");
-            }).then(()=>{ window.location = "/login"})
+            }).then(()=>{ window.location = "/"})
             } catch (err) {
               console.log(err)
  
@@ -111,7 +111,7 @@ export default function Register(){
             </Stack>
             <Stack pt={6}>
               <Text align={'center'}>
-                Already a user? <Link color={'blue.400'}>Login</Link>
+                Already a user? <Link onClick={()=>{window.location="/"}} color={'blue.400'}>Login</Link>
               </Text>
             </Stack>
                 </FormControl>
